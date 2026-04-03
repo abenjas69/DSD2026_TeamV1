@@ -457,3 +457,164 @@ a {
     align-items: flex-start;
   }
 }
+
+.status-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 14px 0 0;
+}
+
+.status-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.status-list li:last-child {
+  border-bottom: none;
+}
+
+.item-date {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.03em;
+}
+
+.item-text {
+  color: var(--muted);
+}
+
+.work-log-section {
+  padding: 48px 0 0;
+}
+
+.avatar-img {
+  width: 84px;
+  height: 84px;
+  border-radius: 20px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 14px;
+  border: 1px solid rgba(69, 212, 131, 0.25);
+  box-shadow: var(--shadow);
+}
+
+.avatar-detail {
+  width: 96px;
+  height: 96px;
+  margin: 0;
+}
+
+.member-link-card {
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.member-link-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(69, 212, 131, 0.28);
+}
+
+.member-detail-section {
+  scroll-margin-top: 110px;
+}
+
+.member-detail-header {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.member-summary {
+  margin-bottom: 22px;
+}
+
+.detail-grid,
+.detail-status-grid {
+  margin-top: 18px;
+}
+
+.detail-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.detail-list {
+  margin: 12px 0 0;
+  padding-left: 18px;
+}
+
+.detail-last-updated {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+
+.worklog-box {
+  margin-top: 18px;
+}
+
+.worklog-list {
+  display: grid;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.worklog-item {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.worklog-item:last-child {
+  border-bottom: none;
+}
+
+.worklog-date {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.worklog-content h4 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+
+.worklog-content p {
+  margin: 0;
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  .member-detail-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .worklog-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+.avatar-small {
+  width: 110px;
+  height: 110px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.avatar-small {
+  width: 110px;
+  height: 110px;
+  border-radius: 20px;
+  object-fit: cover;
+}
