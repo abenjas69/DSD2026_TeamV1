@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V1 · Requirement Analysis</title>
+  <meta name="description" content="Requirement Analysis for Team V1 - AI & Motion Recognition." />
+  <link rel="stylesheet" href="../../style.css" />
+  <style>
+    .srs-shell {
+      padding: 52px 0 80px;
+      background:
+        radial-gradient(circle at top right, rgba(69, 212, 131, 0.10), transparent 28%),
+        var(--bg);
+      min-height: calc(100vh - 78px);
+    }
+
+    .srs-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .srs-button {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(69, 212, 131, 0.28);
+      background: var(--accent-soft);
+      color: var(--text);
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .srs-button:hover {
+      background: rgba(69, 212, 131, 0.18);
+    }
+
+    .srs-button.secondary {
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .srs-button.secondary:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .srs-page {
+      background: #ffffff;
+      border: 1px solid #d8dee8;
+      border-radius: 14px;
+      padding: 34px 34px 40px;
+      box-shadow: 0 8px 24px rgba(22, 29, 39, 0.08);
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .srs-title {
+      text-align: center;
+      color: #274d8a;
+      font-size: 2.15rem;
+      font-weight: 800;
+      margin: 4px 0 6px;
+    }
+
+    .srs-subtitle {
+      text-align: center;
+      color: #4b6b9d;
+      font-size: 1.55rem;
+      font-weight: 700;
+      margin: 0 0 2px;
+    }
+
+    .srs-subtitle-2 {
+      text-align: center;
+      color: #677892;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0 0 22px;
+    }
+
+    .srs-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 22px;
+      font-size: 0.98rem;
+      background: #fff;
+    }
+
+    .srs-table th,
+    .srs-table td {
+      border: 1px solid #cfd7e4;
+      padding: 11px 12px;
+      vertical-align: top;
+      color: #33425b;
+    }
+
+    .srs-table th {
+      background: #dfe7f4;
+      color: #2f4e83;
+      font-weight: 800;
+      text-align: left;
+    }
+
+    .srs-table td.label {
+      width: 26%;
+      background: #edf2fa;
+      color: #355487;
+      font-weight: 700;
+    }
+
+    .srs-note {
+      margin: 10px 0 28px;
+      padding: 16px 18px;
+      border: 1px solid #d8dee8;
+      background: #f3f5f9;
+      color: #707d91;
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    .srs-section {
+      color: #274d8a;
+      font-size: 1.55rem;
+      font-weight: 800;
+      margin: 28px 0 14px;
+    }
+
+    .srs-subsection {
+      color: #4f78ad;
+      font-size: 1.18rem;
+      font-weight: 800;
+      margin: 18px 0 10px;
+    }
+
+    .srs-page p {
+      color: #45556f;
+      line-height: 1.7;
+      margin: 10px 0;
+    }
+
+    .srs-list {
+      margin: 8px 0 18px 0;
+      padding-left: 22px;
+      color: #45556f;
+    }
+
+    .srs-list li {
+      margin: 8px 0;
+    }
+
+    .flow-snapshot {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      margin: 12px 0 26px;
+      border: 1px solid #cfd7e4;
+      overflow: hidden;
+    }
+
+    .flow-step {
+      background: #edf3fb;
+      color: #3a5d93;
+      font-weight: 800;
+      text-align: center;
+      padding: 13px 10px;
+      border-right: 1px solid #cfd7e4;
+    }
+
+    .flow-step:last-child {
+      border-right: none;
+    }
+
+    .usecase-note {
+      color: #5c6981;
+      margin: 8px 0;
+      font-weight: 600;
+    }
+
+    @media (max-width: 900px) {
+      .flow-snapshot {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-step {
+        border-right: none;
+        border-bottom: 1px solid #cfd7e4;
+      }
+
+      .flow-step:last-child {
+        border-bottom: none;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .srs-page {
+        padding: 20px 16px 24px;
+      }
+
+      .srs-title {
+        font-size: 1.7rem;
+      }
+
+      .srs-subtitle {
+        font-size: 1.25rem;
+      }
+
+      .srs-subtitle-2 {
+        font-size: 1rem;
+      }
+
+      .srs-table {
+        font-size: 0.9rem;
+      }
+
+      .srs-table th,
+      .srs-table td {
+        padding: 9px 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand">
+        <span class="brand-tag">DSD 2025–2026</span>
+        <span class="brand-title">V1 · AI & Motion Recognition</span>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+
+      <nav id="mainNav" class="nav-links">
+        <a href="../../index.html" class="nav-link">Home</a>
+        <a href="../../progress.html" class="nav-link">Progress</a>
+        <a href="../../team.html" class="nav-link">Team</a>
+        <a href="../../documents.html" class="nav-link active" aria-current="page">Documents</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="srs-shell">
+    <div class="container">
+      <div class="srs-actions">
+        <a class="srs-button secondary" href="../../documents.html">Back to Documents</a>
+        <a class="srs-button" href="requirement-analysis.pdf" download>Download PDF</a>
+      </div>
+
+      <div class="srs-page">
+        <h1 class="srs-title">Software Requirements Specification</h1>
+        <h2 class="srs-subtitle">Team V1 - AI &amp; Motion Recognition</h2>
+        <h3 class="srs-subtitle-2">Requirement Analysis</h3>
+
+        <table class="srs-table">
+          <tr>
+            <td class="label">Project</td>
+            <td>Limb Motion Recognition and Assistant</td>
+          </tr>
+          <tr>
+            <td class="label">Prepared for</td>
+            <td>Distributed Software Development 2025-2026</td>
+          </tr>
+          <tr>
+            <td class="label">Prepared by</td>
+            <td>Team V1 - AI &amp; Motion Recognition</td>
+          </tr>
+          <tr>
+            <td class="label">Date</td>
+            <td>3 April 2026</td>
+          </tr>
+        </table>
+
+        <div class="srs-note">
+          This document follows the shared SRS draft template, but the content is adapted to Team V1.
+          Simple English is used on purpose so all teams can read it more easily.
+        </div>
+
+        <h2 class="srs-section">Document Overview</h2>
+
+        <table class="srs-table">
+          <tr>
+            <td class="label">Area</td>
+            <td>Server</td>
+          </tr>
+          <tr>
+            <td class="label">Team</td>
+            <td>V1 - AI &amp; Motion Recognition</td>
+          </tr>
+          <tr>
+            <td class="label">Main role</td>
+            <td>Receive motion data, prepare it for inference, run the AI processing pipeline, compare angles, and provide structured results to V2.</td>
+          </tr>
+          <tr>
+            <td class="label">Main dependencies</td>
+            <td>S2 for IF1 and incoming sensor data; V2 for the internal server contract and later integration.</td>
+          </tr>
+          <tr>
+            <td class="label">Main deliverables</td>
+            <td>Preprocessing logic, inference pipeline, comparison output, result schema for V2, and processing metadata.</td>
+          </tr>
+        </table>
+
+        <h2 class="srs-section">0. Background</h2>
+        <p>
+          This document describes the requirement analysis for Team V1 in the Limb Motion Recognition
+          and Assistant project. The project is developed in a distributed setting between UTAD and Jilin University.
+        </p>
+        <p>
+          Inside the project, the Server area receives motion data from the Sensor area, applies AI-based motion
+          recognition, stores session information, and exposes processed results to the Monitor area.
+        </p>
+        <p>
+          Team V1 is responsible for the AI and motion-recognition part of the Server pipeline. V1 is not responsible
+          for the physical sensors and is not responsible for the final patient or clinical interfaces.
+        </p>
+
+        <h3 class="srs-subsection">0.1 Purpose of this document</h3>
+        <ul class="srs-list">
+          <li>To define the requirement analysis of Team V1 using the shared SRS template.</li>
+          <li>To make clear what Team V1 expects to receive from other teams.</li>
+          <li>To make clear what Team V1 will provide to other teams.</li>
+          <li>To define the main V1 interfaces, use cases, and output-delivery approach.</li>
+        </ul>
+
+        <h3 class="srs-subsection">0.2 Scope of Team V1</h3>
+        <ul class="srs-list">
+          <li>Validate and preprocess incoming motion data so it becomes model-ready input.</li>
+          <li>Run the motion-recognition inference pipeline.</li>
+          <li>Compare recognised joint angles with expected recovery values available to the server workflow.</li>
+          <li>Build structured AI results and provide them to Team V2 through an internal server contract.</li>
+          <li>Keep useful processing metadata, warnings, and error states with each result.</li>
+        </ul>
+
+        <h3 class="srs-subsection">0.3 Team boundaries</h3>
+        <ul class="srs-list">
+          <li>The Sensor teams define and deliver the data stream from hardware to server. Team S2 co-owns IF1 with V1.</li>
+          <li>Team V1 focuses on preprocessing, inference, angle comparison, result packaging, and the V1-V2 internal contract.</li>
+          <li>Team V2 focuses on API gateway, storage, authentication, recommendation logic, and IF2 with the Monitor teams.</li>
+        </ul>
+
+        <h3 class="srs-subsection">0.4 Cross-team data exchange</h3>
+
+        <h3 class="srs-subsection">0.4.1 What V1 expects to receive from other teams</h3>
+        <table class="srs-table">
+          <thead>
+            <tr>
+              <th>Source Team</th>
+              <th>Item</th>
+              <th>Why V1 Needs It</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>S2 - Data Acquisition &amp; Mock Generator</td>
+              <td>Sensor session payload through IF1</td>
+              <td>Main input for preprocessing and inference.</td>
+              <td>Should include structure, status, and timing information agreed in IF1.</td>
+            </tr>
+            <tr>
+              <td>S2 - Data Acquisition &amp; Mock Generator</td>
+              <td>Input-format rules and error-handling rules</td>
+              <td>Needed to validate payloads correctly.</td>
+              <td>Part of IF1 co-owned by S2 and V1.</td>
+            </tr>
+            <tr>
+              <td>V2 - Backend API &amp; Storage</td>
+              <td>Internal alignment on output fields needed by storage/API</td>
+              <td>Needed so V1 sends the right result structure.</td>
+              <td>Part of the V1-V2 internal contract.</td>
+            </tr>
+            <tr>
+              <td>Server workflow / agreed project source</td>
+              <td>Expected recovery values or comparison reference</td>
+              <td>Needed for joint-angle comparison.</td>
+              <td>Source of truth must be aligned by the project workflow.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="srs-subsection">0.4.2 What V1 will provide to other teams</h3>
+        <table class="srs-table">
+          <thead>
+            <tr>
+              <th>Receiver Team</th>
+              <th>Item</th>
+              <th>Purpose</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>V2 - Backend API &amp; Storage</td>
+              <td>Structured motion-recognition result</td>
+              <td>Allows V2 to store and expose the AI result.</td>
+              <td>Direct handoff from V1 to V2.</td>
+            </tr>
+            <tr>
+              <td>V2 - Backend API &amp; Storage</td>
+              <td>Joint-angle comparison result</td>
+              <td>Supports later monitoring and API exposure.</td>
+              <td>Included when comparison is possible.</td>
+            </tr>
+            <tr>
+              <td>V2 - Backend API &amp; Storage</td>
+              <td>Processing status, warnings, and errors</td>
+              <td>Allows consistent handling of normal and failed cases.</td>
+              <td>Should follow the internal contract.</td>
+            </tr>
+            <tr>
+              <td>V2 - Backend API &amp; Storage</td>
+              <td>Useful metadata such as confidence, model version, and timestamp</td>
+              <td>Improves traceability and later technical review.</td>
+              <td>Included when available and relevant.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="srs-subsection">0.4.3 Interface definition summary</h3>
+        <table class="srs-table">
+          <thead>
+            <tr>
+              <th>Interface</th>
+              <th>Direction</th>
+              <th>Owners</th>
+              <th>Main Content</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>IF1</td>
+              <td>S2 -&gt; V1</td>
+              <td>S2 and V1</td>
+              <td>Sensor-session payload structure, field meaning, sampling rules, status flags, and error handling.</td>
+            </tr>
+            <tr>
+              <td>V1-V2 internal contract</td>
+              <td>V1 -&gt; V2</td>
+              <td>V1 and V2</td>
+              <td>Recognition result, comparison result, processing status, warnings/errors, and useful metadata.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="srs-subsection">0.4.4 Output delivery approach</h3>
+        <ul class="srs-list">
+          <li>V1 will package its output as a structured internal result object that follows the agreed V1-V2 contract.</li>
+          <li>Each result should include the processing status so V2 can handle both success and failure cases in a consistent way.</li>
+          <li>When available and useful, the result should also include confidence, model version, timestamp, and warning information.</li>
+          <li>The exact technical delivery mechanism can be synchronous or asynchronous, but the payload format must stay stable and clearly documented.</li>
+        </ul>
+
+        <h2 class="srs-section">1. Use Cases</h2>
+        <p class="usecase-note">
+          Note: login, registration, account management, and final user-interface actions are not included here because they belong more naturally to V2 or the Monitor teams.
+        </p>
+        <p class="usecase-note">
+          Note: the use case diagram will be added separately.
+        </p>
+
+        <table class="srs-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Use Case</th>
+              <th>Primary Actor</th>
+              <th>Priority</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>UC-V1-01</td>
+              <td>Process Sensor Session for Motion Recognition</td>
+              <td>S2 - Data Acquisition &amp; Mock Generator</td>
+              <td>High</td>
+            </tr>
+            <tr>
+              <td>UC-V1-02</td>
+              <td>Compare Recognised Joint Angles with Expected Recovery Values</td>
+              <td>None (included use case, invoked by UC-V1-01)</td>
+              <td>High</td>
+            </tr>
+            <tr>
+              <td>UC-V1-03</td>
+              <td>Provide AI Inference Results to V2</td>
+              <td>V2 - Backend API &amp; Storage</td>
+              <td>High</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 class="srs-section">2.1. Process Sensor Session for Motion Recognition</h2>
+        <h3 class="srs-subsection">2.1.1 Basic Info</h3>
+        <table class="srs-table">
+          <tr><td class="label">Reference to Use Case</td><td>UC-V1-01</td></tr>
+          <tr><td class="label">Version</td><td>1.0</td></tr>
+          <tr><td class="label">Created</td><td>3 Apr 2026</td></tr>
+          <tr><td class="label">Authors</td><td>Team V1 - AI &amp; Motion Recognition</td></tr>
+          <tr><td class="label">Source</td><td>Server area / Team V1</td></tr>
+          <tr><td class="label">Actors</td><td>Primary actor: S2 - Data Acquisition &amp; Mock Generator. Downstream receiver: V2 - Backend API &amp; Storage.</td></tr>
+          <tr><td class="label">Goal</td><td>Transform incoming sensor-session data into a structured motion-recognition result that can continue through the server workflow.</td></tr>
+          <tr><td class="label">Summary</td><td>This use case starts when a valid or potentially valid sensor-session payload reaches V1. The V1 module validates the payload, prepares model-ready input, runs inference, and builds a structured result for the next server step.</td></tr>
+          <tr><td class="label">Trigger</td><td>A new motion-data session or payload is received from the Sensor area.</td></tr>
+          <tr><td class="label">Frequency</td><td>Whenever a new session or payload reaches the V1 pipeline.</td></tr>
+          <tr><td class="label">Precondition</td><td>IF1 exists at least in agreed draft form; a payload reaches the server; the V1 model service is available.</td></tr>
+          <tr><td class="label">Postconditions</td><td>A structured recognition result or a structured processing error is produced.</td></tr>
+        </table>
+
+        <h3 class="srs-subsection">Flow Snapshot</h3>
+        <div class="flow-snapshot">
+          <div class="flow-step">Receive Data</div>
+          <div class="flow-step">Validate Input</div>
+          <div class="flow-step">Prepare Input</div>
+          <div class="flow-step">Run Inference</div>
+          <div class="flow-step">Build Result</div>
+        </div>
+
+        <h3 class="srs-subsection">2.1.2 Basic Flow</h3>
+        <table class="srs-table">
+          <thead>
+            <tr>
+              <th>Actor</th>
+              <th>System (V1 Module)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>S2 sends a new motion-data payload to the server.</td>
+              <td>Receive the payload and start the processing routine.</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Check whether the payload follows the expected IF1 structure.</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Validate required fields and basic input status.</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Prepare the payload for model-ready input.</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Run the motion-recognition model on the prepared input.</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Create a structured result with recognised motion output and processing status.</td>
+            </tr>
+            <tr>
+              <td>V2 can consume the result in the next internal step.</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="srs-subsection">2.1.3 Alternative Flow</h3>
+        <table class="srs-table">
+          <thead>
+            <tr>
+              <th>Actor</th>
+              <th>System (V1 Module)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Payload does not match the expected IF1 format.</td>
+              <td>Return a validation error and stop normal processing.</td>
+            </tr>
+            <tr>
+              <td>Required fields are missing or invalid.</td>
+              <td>Return input-status information and mark the session as not processed.</td>
+            </tr>
+            <tr>
+              <td>The model or inference service is not available.</td>
+              <td>Return a processing-failure status and log the issue for technical review.</td>
+            </tr>
+            <tr>
+              <td>Processing completes but confidence is low.</td>
+              <td>Return a low-confidence status or warning together with result metadata.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 class="srs-section">2.2. Compare Recognised Joint Angles with Expected Recovery Values</h2>
+        <h3 class="srs-subsection">2.2.1 Basic Info</h3>
+        <table class="srs-table">
+          <tr><td class="label">Reference to Use Case</td><td>UC-V1-02</td></tr>
+          <tr><td class="label">Version</td><td>1.0</td></tr>
+          <tr><td class="label">Created</td><td>3 Apr 2026</td></tr>
+          <tr><td class="label">Authors</td><td>Team V1 - AI &amp; Motion Recognition</td></tr>
+          <tr><td class="label">Source</td><td>Server area / Team V1</td></tr>
+          <tr><td class="label">Actors</td><td>None as a direct external actor. This is an included use case of V1, invoked by UC-V1-01.</td></tr>
+          <tr><td class="label">Goal</td><td>Compare recognised joint-angle values with expected recovery values and generate a clear comparison result.</td></tr>
+          <tr><td class="label">Summary</td><td>After inference, the V1 module compares recognised angle values with the expected reference values available to the workflow. The output helps later monitoring, review, and API exposure.</td></tr>
+          <tr><td class="label">Trigger</td><td>A recognised motion result becomes available after a successful inference step.</td></tr>
+          <tr><td class="label">Frequency</td><td>Whenever recognised output contains angle information that can be compared.</td></tr>
+          <tr><td class="label">Precondition</td><td>Inference has produced valid angle-related output; comparison reference values or rules are available to the workflow.</td></tr>
+          <tr><td class="label">Postconditions</td><td>A structured comparison result is generated and attached to the processing output, or the system reports why the comparison could not be completed.</td></tr>
+        </table>
+
+        <h3 class="srs-subsection">Flow Snapshot</h3>
+        <div class="flow-snapshot">
+          <div class="flow-step">Read Output</div>
+          <div class="flow-step">Load Reference</div>
+          <div class="flow-step">Compare Values</div>
+          <div class="flow-step">Build Comparison</div>
+          <div class="flow-step">Pass Forward</div>
+        </div>
+
+        <h3 class="srs-subsection">2.2.2 Basic Flow</h3>
+        <table class="srs-table">
+          <thead>
+            <tr>
+              <th>Actor</th>
+              <th>System (V1 Module)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>No direct external actor. The step starts inside V1 after successful inference.</td>
+              <td>Read the recognised angle values and related metadata.</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Load the expected recovery values or comparison reference used by the workflow.</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Compare recognised values against expected values.</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Create a structured comparison result with status, differences, and any relevant warning.</td>
+            </tr>
+            <tr>
+              <td>The richer output becomes available for the next V1-V2 handoff.</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="srs-subsection">2.2.3 Alternative Flow</h3>
+        <table class="srs-table">
+          <thead>
+            <tr>
+              <th>Actor</th>
+              <th>System (V1 Module)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Reference values are not available.</td>
+              <td>Return a partial result and mark the comparison step as incomplete.</td>
+            </tr>
+            <tr>
+              <td>Recognised angle output is incomplete.</td>
+              <td>Return a warning and do not compute the normal comparison result.</td>
+            </tr>
+            <tr>
+              <td>The comparison rule needs clarification.</td>
+              <td>Keep the rule marked as assumption-dependent until the project alignment is finished.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 class="srs-section">2.3. Provide AI Inference Results to V2</h2>
+        <h3 class="srs-subsection">2.3.1 Basic Info</h3>
+        <table class="srs-table">
+          <tr><td class="label">Reference to Use Case</td><td>UC-V1-03</td></tr>
+          <tr><td class="label">Version</td><td>1.0</td></tr>
+          <tr><td class="label">Created</td><td>3 Apr 2026</td></tr>
+          <tr><td class="label">Authors</td><td>Team V1 - AI &amp; Motion Recognition</td></tr>
+          <tr><td class="label">Source</td><td>Server area / Team V1</td></tr>
+          <tr><td class="label">Actors</td><td>Primary actor: V2 - Backend API &amp; Storage. Source side: V1 Motion Recognition Engine.</td></tr>
+          <tr><td class="label">Goal</td><td>Provide V1 AI results to V2 in a stable and easy-to-use internal format.</td></tr>
+          <tr><td class="label">Summary</td><td>This use case covers the handoff from V1 to V2. It focuses on the result payload structure, processing status, and metadata that V2 may need for storage, API exposure, or later integration.</td></tr>
+          <tr><td class="label">Trigger</td><td>A motion-recognition result, with or without angle comparison, is ready for delivery.</td></tr>
+          <tr><td class="label">Frequency</td><td>Whenever the V1 module finishes a processing routine.</td></tr>
+          <tr><td class="label">Precondition</td><td>The V1-V2 internal contract exists at least at draft level and a result object is available.</td></tr>
+          <tr><td class="label">Postconditions</td><td>V2 receives a structured payload or a structured error state that follows the agreed internal rules.</td></tr>
+        </table>
+
+        <h3 class="srs-subsection">Flow Snapshot</h3>
+        <div class="flow-snapshot">
+          <div class="flow-step">Package Result</div>
+          <div class="flow-step">Check Contract</div>
+          <div class="flow-step">Send to V2</div>
+          <div class="flow-step">Ready for Next Step</div>
+          <div class="flow-step">Done</div>
+        </div>
+
+        <h3 class="srs-subsection">2.3.2 Basic Flow</h3>
+        <table class="srs-table">
+          <thead>
+            <tr>
+              <th>Actor</th>
+              <th>System (V1 Module)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A V1 processing routine finishes.</td>
+              <td>Package the recognised motion result, comparison result, status, warnings, and metadata.</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Check the payload against the agreed internal V1-V2 contract.</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>Send the payload to V2 through the internal server handoff.</td>
+            </tr>
+            <tr>
+              <td>V2 receives the payload.</td>
+              <td>Make the result available for the next server step.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="srs-subsection">2.3.3 Alternative Flow</h3>
+        <table class="srs-table">
+          <thead>
+            <tr>
+              <th>Actor</th>
+              <th>System (V1 Module)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>The internal payload is missing required fields.</td>
+              <td>Reject the payload and return a contract-validation error.</td>
+            </tr>
+            <tr>
+              <td>The contract is still incomplete or has changed.</td>
+              <td>Return the case for technical clarification and mark the payload as contract-dependent.</td>
+            </tr>
+            <tr>
+              <td>The processing result contains an error state.</td>
+              <td>Deliver the error status in a structured way so V2 can react consistently.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 class="srs-section">3. Interface and Data Exchange Summary</h2>
+
+        <h3 class="srs-subsection">3.1 IF1 - Sensor to V1</h3>
+        <table class="srs-table">
+          <thead>
+            <tr>
+              <th>Field / Topic</th>
+              <th>What V1 Expects</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Payload identity</td><td>Session ID or equivalent identifier so the result can be traced later.</td></tr>
+            <tr><td>Motion data</td><td>Structured sensor values needed for preprocessing and inference.</td></tr>
+            <tr><td>Status information</td><td>Flags or markers that help V1 detect invalid or incomplete input.</td></tr>
+            <tr><td>Timing / order information</td><td>Information that allows V1 to understand sequence order when needed.</td></tr>
+            <tr><td>Error-handling rules</td><td>Rules that show how invalid payloads or communication problems are represented.</td></tr>
+          </tbody>
+        </table>
+
+        <h3 class="srs-subsection">3.2 V1-V2 internal contract</h3>
+        <table class="srs-table">
+          <thead>
+            <tr>
+              <th>Output Block</th>
+              <th>What V1 Should Send to V2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Recognition result</td><td>Recognised motion result in structured form.</td></tr>
+            <tr><td>Comparison result</td><td>Angle comparison output, when available.</td></tr>
+            <tr><td>Processing status</td><td>Success, partial, failed, or other agreed status values.</td></tr>
+            <tr><td>Warnings / errors</td><td>Warnings, low-confidence markers, or clear failure information.</td></tr>
+            <tr><td>Metadata</td><td>Confidence, model version, timestamp, and similar fields when useful and available.</td></tr>
+          </tbody>
+        </table>
+
+        <h3 class="srs-subsection">3.3 Delivery rules</h3>
+        <ul class="srs-list">
+          <li>The V1 output should be delivered in a structured internal format agreed with V2.</li>
+          <li>The payload should be easy to validate, store, and expose later through V2 services.</li>
+          <li>Normal and failed processing cases should use the same general contract structure so downstream handling stays consistent.</li>
+          <li>Field names, allowed status values, and required/optional metadata should be documented jointly by V1 and V2.</li>
+        </ul>
+
+        <h2 class="srs-section">4. Functional Requirements Summary</h2>
+        <table class="srs-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Requirement</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>FR1</td>
+              <td>The V1 module should receive motion data from the Sensor area through IF1.</td>
+              <td>Input comes from S2 through the agreed Sensor -&gt; Server contract.</td>
+            </tr>
+            <tr>
+              <td>FR2</td>
+              <td>The V1 module should check required fields and basic validity before inference starts.</td>
+              <td>Examples: structure, missing values, status flags.</td>
+            </tr>
+            <tr>
+              <td>FR3</td>
+              <td>The V1 module should transform valid incoming data into model-ready input.</td>
+              <td>Preprocessing and feature preparation.</td>
+            </tr>
+            <tr>
+              <td>FR4</td>
+              <td>The V1 module should run inference and generate structured motion-recognition output.</td>
+              <td>Main AI processing step.</td>
+            </tr>
+            <tr>
+              <td>FR5</td>
+              <td>The V1 module should compare recognised joint angles with expected recovery values available to the workflow.</td>
+              <td>Comparison result may be partial if reference values are not available.</td>
+            </tr>
+            <tr>
+              <td>FR6</td>
+              <td>The V1 module should provide structured results to V2 using a clear internal contract.</td>
+              <td>Result schema, status, warnings, and metadata.</td>
+            </tr>
+            <tr>
+              <td>FR7</td>
+              <td>The V1 module should report processing errors or low-confidence outcomes in a consistent way.</td>
+              <td>Important for traceability and later UI behaviour.</td>
+            </tr>
+            <tr>
+              <td>FR8</td>
+              <td>The V1 module should keep useful model and processing metadata with each result when relevant.</td>
+              <td>Examples: model version, timestamp, confidence.</td>
+            </tr>
+            <tr>
+              <td>FR9</td>
+              <td>The V1 module should support validation and benchmarking-oriented records for technical review.</td>
+              <td>Metrics and assumptions should be documented.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 class="srs-section">5. Non-Functional Requirements Summary</h2>
+        <table class="srs-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Requirement</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>NFR1</td>
+              <td>Interface clarity</td>
+              <td>Input and output formats should be documented in a way that other teams can understand quickly.</td>
+            </tr>
+            <tr>
+              <td>NFR2</td>
+              <td>Maintainability</td>
+              <td>The pipeline should be organised so preprocessing changes, model updates, and contract changes are manageable.</td>
+            </tr>
+            <tr>
+              <td>NFR3</td>
+              <td>Testability</td>
+              <td>The module should support peer review, cross-testing, and repeatable checks on sample data.</td>
+            </tr>
+            <tr>
+              <td>NFR4</td>
+              <td>Traceability</td>
+              <td>Processing status, assumptions, warnings, and technical limitations should be easy to review later.</td>
+            </tr>
+            <tr>
+              <td>NFR5</td>
+              <td>Team readability</td>
+              <td>Documentation and interface descriptions should use simple English and avoid unnecessary complexity.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 class="srs-section">6. Assumptions and Alignment Notes</h2>
+        <ul class="srs-list">
+          <li>IF1 should be frozen early enough to unblock stable V1 development.</li>
+          <li>The source of expected recovery values should be agreed by the server workflow before comparison logic is treated as fully fixed.</li>
+          <li>The V1-V2 internal contract should define required fields, optional fields, and allowed status values.</li>
+          <li>The exact technical delivery mechanism may still evolve, but the payload structure should remain stable once agreed.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <script src="../../script.js"></script>
+  <script>
+    document.querySelectorAll(".nav-link").forEach(link => link.classList.remove("active"));
+    const docsLink = document.querySelector('.nav-link[href="../../documents.html"]');
+    if (docsLink) {
+      docsLink.classList.add("active");
+      docsLink.setAttribute("aria-current", "page");
+    }
+  </script>
+</body>
+</html>

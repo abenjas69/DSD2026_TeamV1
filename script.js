@@ -126,6 +126,29 @@ function renderMemberPage() {
   `;
 }
 
+const openRequirementAnalysis = document.getElementById("openRequirementAnalysis");
+const requirementOverlay = document.getElementById("requirementOverlay");
+const closeRequirementOverlay = document.getElementById("closeRequirementOverlay");
+
+if (openRequirementAnalysis && requirementOverlay && closeRequirementOverlay) {
+  openRequirementAnalysis.addEventListener("click", () => {
+    requirementOverlay.classList.add("open");
+    document.body.style.overflow = "hidden";
+  });
+
+  closeRequirementOverlay.addEventListener("click", () => {
+    requirementOverlay.classList.remove("open");
+    document.body.style.overflow = "";
+  });
+
+  requirementOverlay.addEventListener("click", (event) => {
+    if (event.target === requirementOverlay) {
+      requirementOverlay.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+  });
+}
+
 // CALLS
 renderTeamCards();
 renderMemberPage();

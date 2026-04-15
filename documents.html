@@ -6,6 +6,52 @@
   <title>V1 · Documents</title>
   <meta name="description" content="Project documents for V1 AI & Motion Recognition." />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .document-card {
+      min-height: 260px;
+    }
+
+    .doc-meta {
+      margin-top: 14px;
+    }
+
+    .doc-meta p {
+      margin: 4px 0;
+    }
+
+    .doc-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .doc-button {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(69, 212, 131, 0.28);
+      background: var(--accent-soft);
+      color: var(--text);
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .doc-button:hover {
+      background: rgba(69, 212, 131, 0.18);
+    }
+
+    .doc-button.secondary {
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .doc-button.secondary:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.05);
+    }
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -39,7 +85,7 @@
   <section class="section">
     <div class="container">
       <div class="grid two">
-        <div class="card document-card featured-doc">
+        <div class="card document-card">
           <p class="section-number">LATEST DOCUMENT</p>
           <h3>Requirement Analysis</h3>
           <p>
@@ -48,11 +94,11 @@
 
           <div class="doc-meta">
             <p><strong>Date:</strong> 2026-04-06</p>
-            <p><strong>Format:</strong> PDF</p>
+            <p><strong>Format:</strong> HTML view + PDF</p>
           </div>
 
           <div class="doc-actions">
-            <a class="doc-button" href="assets/docs/requirement-analysis.pdf" target="_blank">Open PDF</a>
+            <a class="doc-button" href="assets/docs/requirement-analysis.html">See</a>
             <a class="doc-button secondary" href="assets/docs/requirement-analysis.pdf" download>Download PDF</a>
           </div>
         </div>
@@ -61,8 +107,8 @@
           <p class="section-number">FUTURE DOCUMENTS</p>
           <h3>More documents will be added here</h3>
           <p>
-            This page will also be used for future project files such as updated requirement documents,
-            design notes, and other written deliverables.
+            This page will later include updated requirement documents, design notes,
+            interface contracts, and other written deliverables.
           </p>
         </div>
       </div>
