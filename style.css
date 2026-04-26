@@ -650,6 +650,8 @@ a {
   border: 1px solid rgba(69, 212, 131, 0.28);
   background: var(--accent-soft);
   color: var(--text);
+  cursor: pointer;
+  font: inherit;
   font-weight: 600;
   transition: 0.2s ease;
 }
@@ -839,8 +841,23 @@ a {
 }
 
 .doc-overlay-content {
+  flex: 1;
+  min-height: 0;
   padding: 24px;
   overflow-y: auto;
+}
+
+.doc-overlay-content.frame-content {
+  padding: 0;
+  overflow: hidden;
+}
+
+.doc-overlay-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  background: #fff;
 }
 
 .doc-overlay-content h3 {
@@ -860,4 +877,5 @@ a {
   background: transparent;
   color: var(--text);
   cursor: pointer;
+  font: inherit;
 }

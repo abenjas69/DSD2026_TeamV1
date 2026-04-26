@@ -126,28 +126,44 @@ function renderMemberPage() {
   `;
 }
 
-const openRequirementAnalysis = document.getElementById("openRequirementAnalysis");
-const requirementOverlay = document.getElementById("requirementOverlay");
-const closeRequirementOverlay = document.getElementById("closeRequirementOverlay");
+// DOCUMENT OVERLAYS
+function closeOpenDocumentOverlay() {
+  const openOverlay = document.querySelector(".doc-overlay.open");
 
-if (openRequirementAnalysis && requirementOverlay && closeRequirementOverlay) {
-  openRequirementAnalysis.addEventListener("click", () => {
-    requirementOverlay.classList.add("open");
+  if (!openOverlay) {
+    return;
+  }
+
+  openOverlay.classList.remove("open");
+  document.body.style.overflow = "";
+}
+
+document.querySelectorAll("[data-overlay-target]").forEach(trigger => {
+  trigger.addEventListener("click", () => {
+    const overlay = document.getElementById(trigger.dataset.overlayTarget);
+
+    if (!overlay) {
+      return;
+    }
+
+    overlay.classList.add("open");
     document.body.style.overflow = "hidden";
   });
+});
 
-  closeRequirementOverlay.addEventListener("click", () => {
-    requirementOverlay.classList.remove("open");
-    document.body.style.overflow = "";
-  });
-
-  requirementOverlay.addEventListener("click", (event) => {
-    if (event.target === requirementOverlay) {
-      requirementOverlay.classList.remove("open");
-      document.body.style.overflow = "";
+document.querySelectorAll(".doc-overlay").forEach(overlay => {
+  overlay.addEventListener("click", event => {
+    if (event.target === overlay || event.target.hasAttribute("data-overlay-close")) {
+      closeOpenDocumentOverlay();
     }
   });
-}
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") {
+    closeOpenDocumentOverlay();
+  }
+});
 
 // CALLS
 renderTeamCards();

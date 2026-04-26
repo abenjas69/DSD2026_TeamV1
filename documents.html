@@ -85,8 +85,25 @@
   <section class="section">
     <div class="container">
       <div class="grid two">
+        <div class="card document-card featured-doc">
+          <p class="section-number">LATEST MEETING</p>
+          <h3>S2 Interface Alignment</h3>
+          <p>
+            Meeting note about the IF1 data needed by V1 and the S2 response about Target Angle ownership.
+          </p>
+
+          <div class="doc-meta">
+            <p><strong>Status:</strong> Most recent documented item</p>
+            <p><strong>Format:</strong> Meeting note</p>
+          </div>
+
+          <div class="doc-actions">
+            <button class="doc-button" type="button" data-overlay-target="s2MeetingOverlay">See</button>
+          </div>
+        </div>
+
         <div class="card document-card">
-          <p class="section-number">LATEST DOCUMENT</p>
+          <p class="section-number">REFERENCE DOCUMENT</p>
           <h3>Requirement Analysis</h3>
           <p>
             Current requirement analysis document for the V1 team.
@@ -98,22 +115,122 @@
           </div>
 
           <div class="doc-actions">
-            <a class="doc-button" href="assets/docs/requirement-analysis.html">See</a>
+            <button class="doc-button" type="button" data-overlay-target="requirementOverlay">See</button>
             <a class="doc-button secondary" href="assets/docs/requirement-analysis.pdf" download>Download PDF</a>
           </div>
-        </div>
-
-        <div class="card document-card">
-          <p class="section-number">FUTURE DOCUMENTS</p>
-          <h3>More documents will be added here</h3>
-          <p>
-            This page will later include updated requirement documents, design notes,
-            interface contracts, and other written deliverables.
-          </p>
         </div>
       </div>
     </div>
   </section>
+
+  <div class="doc-overlay" id="s2MeetingOverlay" role="dialog" aria-modal="true" aria-labelledby="s2MeetingTitle">
+    <div class="doc-overlay-inner">
+      <div class="doc-overlay-topbar">
+        <div>
+          <p class="section-number">MEETING NOTE</p>
+          <h2 id="s2MeetingTitle">S2 Interface Alignment</h2>
+          <p class="doc-summary-text">
+            Record of the V1 and S2 discussion about IF1 data requirements and expected comparison values.
+          </p>
+        </div>
+
+        <div class="doc-overlay-actions">
+          <button class="doc-close-button" type="button" data-overlay-close>Close</button>
+        </div>
+      </div>
+
+      <div class="doc-overlay-content">
+        <div class="detail-box">
+          <h3>V1 request to S2</h3>
+          <p>
+            V1 explained that the motion-recognition pipeline ideally needs the following information from S2:
+          </p>
+          <ul class="status-list">
+            <li>
+              <span class="item-text">Measured sensor data or motion stream.</span>
+            </li>
+            <li>
+              <span class="item-text">Timestamp or sequence information.</span>
+            </li>
+            <li>
+              <span class="item-text">Sensor or joint identification, if available.</span>
+            </li>
+            <li>
+              <span class="item-text">Payload format and units defined in IF1.</span>
+            </li>
+            <li>
+              <span class="item-text">Payload status and error information.</span>
+            </li>
+            <li>
+              <span class="item-text">Target Angle or expected values used for comparison.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="grid two detail-grid">
+          <div class="detail-box">
+            <h3>S2 response</h3>
+            <p>
+              S2 confirmed that they can provide the requested sensor-side data. According to their analysis,
+              the expected Target Angle value may not be provided by S2 and may be stored in the V2 database.
+            </p>
+            <ul class="status-list">
+              <li>
+                <span class="item-date">Confirmed by S2</span>
+                <span class="item-text">Measured data, timing or sequence information, identifiers when available, IF1 format and units, and payload status or error information can be provided.</span>
+              </li>
+              <li>
+                <span class="item-date">Open dependency</span>
+                <span class="item-text">Target Angle / expected values must be aligned with V2 or the agreed server workflow.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="detail-box">
+            <h3>Follow-up for V1</h3>
+            <ul class="status-list">
+              <li>
+                <span class="item-date">IF1</span>
+                <span class="item-text">Keep the S2 -> V1 contract focused on motion payload structure, timing/order, sensor or joint identifiers, units, status, and error fields.</span>
+              </li>
+              <li>
+                <span class="item-date">V1-V2</span>
+                <span class="item-text">Confirm with V2 where Target Angle / expected values are stored and how V1 can access them for comparison.</span>
+              </li>
+              <li>
+                <span class="item-date">Comparison logic</span>
+                <span class="item-text">Treat missing expected values as a partial comparison case until the source of truth is agreed.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-overlay" id="requirementOverlay" role="dialog" aria-modal="true" aria-labelledby="requirementTitle">
+    <div class="doc-overlay-inner">
+      <div class="doc-overlay-topbar">
+        <div>
+          <p class="section-number">DOCUMENT</p>
+          <h2 id="requirementTitle">Requirement Analysis</h2>
+          <p class="doc-summary-text">
+            Current requirement analysis document for the V1 team.
+          </p>
+        </div>
+
+        <div class="doc-overlay-actions">
+          <a class="doc-button" href="assets/docs/requirement-analysis.html">Open full page</a>
+          <a class="doc-button secondary" href="assets/docs/requirement-analysis.pdf" download>Download PDF</a>
+          <button class="doc-close-button" type="button" data-overlay-close>Close</button>
+        </div>
+      </div>
+
+      <div class="doc-overlay-content frame-content">
+        <iframe class="doc-overlay-frame" src="assets/docs/requirement-analysis.html" title="Requirement Analysis"></iframe>
+      </div>
+    </div>
+  </div>
 
   <footer class="footer">
     <div class="container footer-wrap">
