@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V1 - News</title>
+  <meta name="description" content="News and project updates for V1 AI & Motion Recognition." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand">
+        <span class="brand-tag">DSD 2025-2026</span>
+        <span class="brand-title">V1 - AI & Motion Recognition</span>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">&#9776;</button>
+
+      <nav id="mainNav" class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="team.html" class="nav-link">Team</a>
+        <a href="progress.html" class="nav-link">Progress</a>
+        <a href="documents.html" class="nav-link">Documents</a>
+        <a href="news.html" class="nav-link">News</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="padding: 72px 0 52px;">
+    <div class="container">
+      <p class="eyebrow">PROJECT UPDATES</p>
+      <h1 style="max-width: none;">News</h1>
+      <p class="hero-text">
+        Narrative updates and important alignment decisions for Team V1. Operational tasks remain on the Progress page.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <article class="news-feature card">
+        <div>
+          <p class="section-number">FEATURED UPDATE</p>
+          <h2>V1-V2 Interface Alignment for Generation 1</h2>
+          <p class="news-meta">2026-05-05</p>
+        </div>
+
+        <p>
+          Team V1 discussed the interface with Team V2. V2 confirmed that the current production API still uses
+          <code>jointAngles</code>, <code>isCorrect</code>, <code>timestamp</code>, and <code>sessionId</code>.
+        </p>
+        <p>
+          V2 also explained that changing endpoints now could risk breaking Generation 1 integration. Team V1
+          agreed to work with the current API for Generation 1 and send recommendation results through
+          <code>POST /recommendations</code>.
+        </p>
+        <p>
+          The richer IMU-based schema using <code>targetAngles</code>, <code>sensorData</code>, and <code>errors</code>
+          remains planned for a future generation. This future schema is important for a more complete AI and
+          motion-recognition pipeline, but it should be revisited after the current presentation.
+        </p>
+      </article>
+
+      <div class="news-timeline">
+        <article class="news-item">
+          <div class="news-date">2026-04-03</div>
+          <div class="news-content card">
+            <p class="section-number">REQUIREMENTS</p>
+            <h3>Initial Requirement Analysis prepared</h3>
+            <p>
+              Team V1 prepared the initial requirement analysis to describe its role in AI and motion recognition
+              inside the Server area.
+            </p>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <div class="news-date">2026-05-05</div>
+          <div class="news-content card">
+            <p class="section-number">INTERFACE</p>
+            <h3>Current V2 API confirmed</h3>
+            <p>
+              V2 confirmed that <code>targetAngles</code>, <code>sensorData</code>, and <code>errors</code> are not
+              implemented in the current production API yet. They remain part of the future interface direction.
+            </p>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <div class="news-date">2026-05-06</div>
+          <div class="news-content card">
+            <p class="section-number">DOCUMENTS</p>
+            <h3>Requirement Analysis v1.4 updated and published</h3>
+            <p>
+              The Requirement Analysis was updated to reflect V2 as the direct V1 input and output point. Version 1.4
+              also clarifies that Generation 1 uses two angle values inside <code>jointAngles</code> and produces a
+              plain-text recommendation through V2.
+            </p>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <div class="news-date">2026-05-06</div>
+          <div class="news-content card">
+            <p class="section-number">ROADMAP</p>
+            <h3>Generation 1 and future extension strategy clarified</h3>
+            <p>
+              Generation 1 will use <code>jointAngles + isCorrect + timestamp + sessionId</code>. The future extension
+              may use <code>targetAngles + sensorData + errors</code> after V1 and V2 revisit the API. Version 1.4
+              clarifies that the immediate input is a two-angle workflow and not a full IMU pipeline yet.
+            </p>
+          </div>
+        </article>
+
+        <article class="news-item">
+          <div class="news-date">2026-05-06</div>
+          <div class="news-content card">
+            <p class="section-number">WEBSITE</p>
+            <h3>Website documentation updated</h3>
+            <p>
+              The Documents page now gives access to the current Requirement Analysis v1.4 as a site article, PDF, and
+              Markdown file. The Progress page now focuses on tasks, while this News page keeps narrative updates.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-wrap">
+      <div>
+        <strong>V1 - AI & Motion Recognition</strong>
+        <p>UTAD x Jilin University</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="team.html">Team</a>
+        <a href="progress.html">Progress</a>
+        <a href="documents.html">Documents</a>
+        <a href="news.html">News</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

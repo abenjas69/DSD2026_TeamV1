@@ -15,13 +15,14 @@
         <span class="brand-title">V1 · AI & Motion Recognition</span>
       </div>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">&#9776;</button>
 
       <nav id="mainNav" class="nav-links">
         <a href="index.html" class="nav-link">Home</a>
-        <a href="progress.html" class="nav-link">Progress</a>
         <a href="team.html" class="nav-link">Team</a>
+        <a href="progress.html" class="nav-link">Progress</a>
         <a href="documents.html" class="nav-link">Documents</a>
+        <a href="news.html" class="nav-link">News</a>
       </nav>
     </div>
   </header>
@@ -31,7 +32,7 @@
       <p class="eyebrow">MAIN STATUS PAGE</p>
       <h1 style="max-width: none;">Team progress</h1>
       <p class="hero-text">
-        This page is the clearest view of the current state of V1.
+        Operational view of what V1 has completed, what is active, and what comes next.
       </p>
     </div>
   </section>
@@ -44,8 +45,70 @@
           <span class="badge active">Sprint 1</span>
         </div>
         <p>
-          Requirement analysis, interface alignment, and early preparation for the future AI data pipeline.
+          Generation 1 planning and V1-V2 integration preparation using the current V2 production API.
         </p>
+      </div>
+
+      <div class="roadmap-card">
+        <div class="card-top">
+          <div>
+            <p class="section-number">ROADMAP</p>
+            <h2>V1 Development Roadmap</h2>
+          </div>
+          <span class="badge active">Current plan</span>
+        </div>
+
+        <div class="roadmap-grid">
+          <div class="roadmap-lane active-lane">
+            <div class="roadmap-lane-header">
+              <span class="roadmap-status">Active / current</span>
+              <h3>Generation 1</h3>
+              <p>Use the current V2 API without endpoint changes.</p>
+            </div>
+
+            <div class="roadmap-flow">
+              <div class="roadmap-node">
+                <span>V2 Current API</span>
+                <strong>Two uploaded angle values inside jointAngles + isCorrect + timestamp + sessionId</strong>
+              </div>
+              <div class="roadmap-arrow">-></div>
+              <div class="roadmap-node">
+                <span>V1 Processing</span>
+                <strong>Angle-based analysis / rule-based recommendation</strong>
+              </div>
+              <div class="roadmap-arrow">-></div>
+              <div class="roadmap-node">
+                <span>Output to V2</span>
+                <strong>Plain-text recommendation through POST /recommendations</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-lane future-lane">
+            <div class="roadmap-lane-header">
+              <span class="roadmap-status">Planned after Generation 1</span>
+              <h3>Future Generation</h3>
+              <p>Revisit the richer IMU-based schema after the current presentation.</p>
+            </div>
+
+            <div class="roadmap-flow">
+              <div class="roadmap-node">
+                <span>V2 Richer Schema</span>
+                <strong>targetAngles + sensorData + errors</strong>
+              </div>
+              <div class="roadmap-arrow">-></div>
+              <div class="roadmap-node">
+                <span>V1 Processing</span>
+                <strong>IMU-based AI motion-recognition pipeline</strong>
+              </div>
+              <div class="roadmap-arrow">-></div>
+              <div class="roadmap-node">
+                <span>Output to V2</span>
+                <strong>Richer recommendations and metadata</strong>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="grid three" style="margin-top: 24px;">
@@ -54,51 +117,63 @@
           <ul class="status-list">
             <li>
               <span class="item-date">2026-04-02</span>
-              <span class="item-text">Team members and roles defined</span>
+              <span class="item-text">Team website created and published</span>
             </li>
             <li>
-              <span class="item-date">2026-04-02</span>
-              <span class="item-text">Website published</span>
+              <span class="item-date">2026-05-06</span>
+              <span class="item-text">Requirement Analysis v1.4 updated and published</span>
             </li>
             <li>
-              <span class="item-date">2026-04-06</span>
-              <span class="item-text">Requirement analysis prepared and published in the documents page</span>
+              <span class="item-date">2026-05-05</span>
+              <span class="item-text">V1-V2 Generation 1 interface alignment completed</span>
             </li>
             <li>
-              <span class="item-date">Latest update</span>
-              <span class="item-text">Meeting with S2 documented: S2 can provide the IF1 sensor-side data, while Target Angle / expected values must be aligned with V2 or the server workflow</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>In Progress</h3>
-          <ul class="status-list">
-            <li>
-              <span class="item-date">IF1 alignment</span>
-              <span class="item-text">Clarifying the final S2 -> V1 payload fields: sensor data, timing/order, identifiers, units, status, and error information</span>
+              <span class="item-date">2026-05-05</span>
+              <span class="item-text">Current V2 API format confirmed</span>
             </li>
             <li>
-              <span class="item-date">V1-V2 dependency</span>
-              <span class="item-text">Confirming where Target Angle / expected comparison values are stored and how V1 should access them</span>
+              <span class="item-date">2026-05-06</span>
+              <span class="item-text">Generation 1 two-angle input and plain-text recommendation scope clarified</span>
             </li>
           </ul>
         </div>
 
         <div class="card">
-          <h3>To Do</h3>
+          <h3>Doing</h3>
           <ul class="status-list">
             <li>
-              <span class="item-date">Example CSV files</span>
-              <span class="item-text">Use Professor Zhang's last-cycle CSV files only for study and preparation, not as final data for this year's system</span>
+              <span class="item-date">Planning</span>
+              <span class="item-text">Preparing Generation 1 V1 implementation plan</span>
             </li>
             <li>
-              <span class="item-date">Initial technical plan</span>
-              <span class="item-text">Ask the Chinese side of V1 to draft a simple proposal during the academic holiday, covering CSV contents, possible cleaning/transformation, AI input format, preprocessing, post-processing, result formatting, and open questions for this year's real data</span>
+              <span class="item-date">Recommendation logic</span>
+              <span class="item-text">Preparing V1 recommendation logic using the current V2 API</span>
             </li>
             <li>
-              <span class="item-date">After holiday</span>
-              <span class="item-text">Review the proposal together, give feedback, and use it to avoid starting the model architecture and inference-flow work from zero</span>
+              <span class="item-date">Integration</span>
+              <span class="item-text">Reviewing integration needs with V2</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>To Do / Upcoming</h3>
+          <ul class="status-list">
+            <li>
+              <span class="item-date">Generation 1</span>
+              <span class="item-text">Implement V1 processing using jointAngles</span>
+            </li>
+            <li>
+              <span class="item-date">Output</span>
+              <span class="item-text">Send recommendation output through POST /recommendations</span>
+            </li>
+            <li>
+              <span class="item-date">Future extension</span>
+              <span class="item-text">Review targetAngles + sensorData + errors after Generation 1</span>
+            </li>
+            <li>
+              <span class="item-date">Future AI pipeline</span>
+              <span class="item-text">Prepare IMU-based AI pipeline when richer data becomes available</span>
             </li>
           </ul>
         </div>
@@ -117,6 +192,7 @@
         <a href="index.html">Home</a>
         <a href="team.html">Team</a>
         <a href="documents.html">Documents</a>
+        <a href="news.html">News</a>
       </div>
     </div>
   </footer>

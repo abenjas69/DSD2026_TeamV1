@@ -15,14 +15,15 @@
         <span class="brand-title">V1 · AI & Motion Recognition</span>
       </div>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">&#9776;</button>
 
       <nav id="mainNav" class="nav-links">
         <a href="index.html" class="nav-link">Home</a>
-        <a href="progress.html" class="nav-link">Progress</a>
         <a href="team.html" class="nav-link">Team</a>
+        <a href="progress.html" class="nav-link">Progress</a>
         <a href="documents.html" class="nav-link">Documents</a>
-    </nav>
+        <a href="news.html" class="nav-link">News</a>
+      </nav>
     </div>
   </header>
 
@@ -33,8 +34,8 @@
         <h1>Where raw motion data becomes actionable intelligence.</h1>
         <p class="hero-text">
           Team V1 is responsible for AI and motion recognition inside the Server area:
-          preprocessing incoming data, integrating Deep Learning models, running inference,
-          comparing recognised motion results, and preparing outputs for the rest of the system.
+          reading movement measurements from V2, preparing data for analysis, running the
+          first angle-based workflow, and sending recommendation results back to V2.
         </p>
 
         <div class="hero-tags">
@@ -80,17 +81,16 @@
       <p class="section-number">TEAM CONTEXT</p>
       <h2>Why V1 matters</h2>
       <p class="section-intro">
-        V1 is the analytical core of the project. It receives structured motion data,
-        prepares it for inference, integrates the models, compares outputs against expected
-        values, and produces results that other teams can use for APIs, dashboards,
-        patient feedback, and clinical interpretation.
+        V1 is the analytical core of the project. It receives structured movement data from V2,
+        prepares it for analysis, and produces recommendation results that V2 can expose later
+        to patient and clinical interfaces.
       </p>
 
       <div class="grid three">
         <div class="card">
           <h3>Input</h3>
           <p>
-            Motion data arrives from the Sensor area through the Sensor → Server contract.
+            Generation 1 measurements come from V2 using jointAngles, isCorrect, timestamp, and sessionId.
           </p>
         </div>
 
@@ -104,7 +104,7 @@
         <div class="card">
           <h3>Output</h3>
           <p>
-            Recognition results and angle comparison outputs are prepared for V2 and later Monitor use.
+            Recommendation and analysis results are sent back to V2 through POST /recommendations.
           </p>
         </div>
       </div>
@@ -170,17 +170,17 @@
 
         <div class="card">
           <h3>Preprocessing</h3>
-          <p>Prepare incoming sensor data for inference through validation and feature preparation.</p>
+          <p>Prepare V2 measurement data for analysis through validation and normalization.</p>
         </div>
 
         <div class="card">
           <h3>Inference Pipeline</h3>
-          <p>Build the end-to-end flow from motion data input to structured AI output.</p>
+          <p>Build the end-to-end flow from current V2 input to structured recommendation output.</p>
         </div>
 
         <div class="card">
           <h3>Angle Comparison</h3>
-          <p>Compare recognised joint angles against expected recovery values.</p>
+          <p>Use current joint-angle measurements for first-generation analysis and recommendations.</p>
         </div>
 
         <div class="card">
@@ -239,6 +239,7 @@
         <a href="mailto:al80884@alunos.utad.pt">Email</a>
         <a href="https://github.com/abenjas69" target="_blank">GitHub</a>
         <a href="https://www.linkedin.com/in/diogo-borges-9aba562a7/" target="_blank">LinkedIn</a>
+        <a href="news.html">News</a>
       </div>
     </div>
   </footer>
