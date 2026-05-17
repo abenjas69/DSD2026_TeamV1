@@ -110,6 +110,27 @@
         </div>
 
         <div class="card document-card">
+          <p class="section-number">PIPELINE DESIGN</p>
+          <h3>V1 AI Pipeline Design</h3>
+          <p>
+            Detailed technical design of the Team V1 preprocessing and AI pipeline, including data ingestion,
+            validation, synchronization, feature engineering, window creation, baseline models, Deep Learning
+            model planning, post-processing, and future extensions.
+          </p>
+
+          <div class="doc-meta">
+            <p><strong>Published:</strong> 2026-05-17</p>
+            <p><strong>Status:</strong> Pipeline design and implementation roadmap</p>
+            <p><strong>Format:</strong> Site article + Markdown + visual overview</p>
+          </div>
+
+          <div class="doc-actions">
+            <button class="doc-button" type="button" data-overlay-target="pipelineOverlay">See</button>
+            <a class="doc-button secondary" href="assets/docs/v1-pipeline-design.md" download>Download Markdown</a>
+          </div>
+        </div>
+
+        <div class="card document-card">
           <p class="section-number">MEETING NOTE</p>
           <h3>S2 Upstream Data Context</h3>
           <p>
@@ -126,6 +147,42 @@
             <button class="doc-button" type="button" data-overlay-target="s2MeetingOverlay">See</button>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="visualPipelineOverview">
+    <div class="container">
+      <p class="section-number">VISUAL PIPELINE OVERVIEW</p>
+      <h2>Visual Pipeline Overview</h2>
+      <p class="section-intro">
+        For a faster overview, the pipeline is also available as three visual infographic pages.
+      </p>
+
+      <div class="pipeline-preview-grid">
+        <a class="card pipeline-preview-card" href="assets/img/pipeline/v1-pipeline-part-1.png" target="_blank" rel="noopener">
+          <img src="assets/img/pipeline/v1-pipeline-part-1.png" alt="Team V1 Pipeline Design Part 1: Data Foundations and Preprocessing" />
+          <div>
+            <h3>Part 1 - Data Foundations and Preprocessing</h3>
+            <p>Raw data, schema checks, session context, sensors, timestamps, and synchronization.</p>
+          </div>
+        </a>
+
+        <a class="card pipeline-preview-card" href="assets/img/pipeline/v1-pipeline-part-2.png" target="_blank" rel="noopener">
+          <img src="assets/img/pipeline/v1-pipeline-part-2.png" alt="Team V1 Pipeline Design Part 2: Feature Preparation and Training Inputs" />
+          <div>
+            <h3>Part 2 - Feature Preparation and Training Inputs</h3>
+            <p>Wide-format conversion, feature engineering, target alignment, phases, and windows.</p>
+          </div>
+        </a>
+
+        <a class="card pipeline-preview-card" href="assets/img/pipeline/v1-pipeline-part-3.png" target="_blank" rel="noopener">
+          <img src="assets/img/pipeline/v1-pipeline-part-3.png" alt="Team V1 Pipeline Design Part 3: Models, Outputs, and Future Extensions" />
+          <div>
+            <h3>Part 3 - Models, Outputs, and Future Extensions</h3>
+            <p>Baselines, 1D CNN planning, post-processing, recommendations, and future needs.</p>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -236,6 +293,30 @@
 
       <div class="doc-overlay-content frame-content">
         <iframe class="doc-overlay-frame" src="assets/docs/V1_Requirement_Analysis_v1_4_Updated.html" title="Requirement Analysis v1.4"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-overlay" id="pipelineOverlay" role="dialog" aria-modal="true" aria-labelledby="pipelineTitle">
+    <div class="doc-overlay-inner">
+      <div class="doc-overlay-topbar">
+        <div>
+          <p class="section-number">PIPELINE DESIGN</p>
+          <h2 id="pipelineTitle">V1 AI Pipeline Design</h2>
+          <p class="doc-summary-text">
+            Rendered site article for the Team V1 preprocessing and AI pipeline design.
+          </p>
+        </div>
+
+        <div class="doc-overlay-actions">
+          <a class="doc-button" href="assets/docs/v1-pipeline-design.html">Open full page</a>
+          <a class="doc-button secondary" href="assets/docs/v1-pipeline-design.md" download>Download Markdown</a>
+          <button class="doc-close-button" type="button" data-overlay-close>Close</button>
+        </div>
+      </div>
+
+      <div class="doc-overlay-content frame-content">
+        <iframe class="doc-overlay-frame" src="assets/docs/v1-pipeline-design.html" title="V1 AI Pipeline Design"></iframe>
       </div>
     </div>
   </div>

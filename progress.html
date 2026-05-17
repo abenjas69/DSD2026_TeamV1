@@ -116,6 +116,18 @@
           <h3>Done</h3>
           <ul class="status-list">
             <li>
+              <span class="item-date">2026-05-17</span>
+              <span class="item-text"><strong>V1 AI Pipeline Design published</strong> - Added the first detailed design of the V1 preprocessing and AI pipeline, covering raw JSON ingestion, schema validation, sensor synchronization, feature engineering, target angle alignment, window creation, baseline models, first Deep Learning model planning, post-processing, and future extensions.</span>
+            </li>
+            <li>
+              <span class="item-date">2026-05-17</span>
+              <span class="item-text"><strong>Visual Pipeline Overview added</strong> - Published three infographic pages to explain the V1 pipeline faster for other teams, covering data foundations, feature preparation, training inputs, models, outputs, and future extensions.</span>
+            </li>
+            <li>
+              <span class="item-date">2026-05-17</span>
+              <span class="item-text"><strong>First AI task clarified</strong> - Defined <code>left_knee</code> angle regression from synchronized IMU data as the first realistic AI task. A complete clinical model remains future work and depends on more sessions, sensor-to-body mapping, exercise context, repetition information, and clinical labels.</span>
+            </li>
+            <li>
               <span class="item-date">2026-04-02</span>
               <span class="item-text">Team website created and published</span>
             </li>
@@ -142,16 +154,20 @@
           <h3>Doing</h3>
           <ul class="status-list">
             <li>
-              <span class="item-date">Planning</span>
-              <span class="item-text">Preparing Generation 1 V1 implementation plan</span>
+              <span class="item-date">Pipeline preparation</span>
+              <span class="item-text"><strong>Pipeline Implementation Preparation</strong> - Preparing the implementation of the first pipeline modules: data parser, validation, sensor grouping, timestamp normalization, synchronization/interpolation, wide-format conversion, and training dataset preparation.</span>
             </li>
             <li>
-              <span class="item-date">Recommendation logic</span>
-              <span class="item-text">Preparing V1 recommendation logic using the current V2 API</span>
+              <span class="item-date">Data format review</span>
+              <span class="item-text"><strong>S2/V2 payload mapping</strong> - Reviewing how <code>sensorData</code>, <code>targetAngles</code>, <code>errors</code>, and <code>sessionId</code> should be converted into model-ready tables and time-series windows.</span>
+            </li>
+            <li>
+              <span class="item-date">Generation 1</span>
+              <span class="item-text"><strong>Current API compatibility</strong> - Keeping the immediate V1 work compatible with the current V2 Generation 1 API while the richer IMU-based pipeline remains an implementation roadmap.</span>
             </li>
             <li>
               <span class="item-date">Integration</span>
-              <span class="item-text">Reviewing integration needs with V2</span>
+              <span class="item-text"><strong>V2 output path review</strong> - Reviewing how future pipeline results can be converted into recommendation or analysis outputs that V2 can store and expose to other teams.</span>
             </li>
           </ul>
         </div>
@@ -160,20 +176,20 @@
           <h3>To Do / Upcoming</h3>
           <ul class="status-list">
             <li>
-              <span class="item-date">Generation 1</span>
-              <span class="item-text">Implement V1 processing using jointAngles</span>
+              <span class="item-date">First modules</span>
+              <span class="item-text"><strong>Parser and validator</strong> - Implement the first code modules for loading pipeline JSON files, validating required fields, reporting invalid sessions, and preserving the original raw data.</span>
             </li>
             <li>
-              <span class="item-date">Output</span>
-              <span class="item-text">Send recommendation output through POST /recommendations</span>
+              <span class="item-date">Preprocessing</span>
+              <span class="item-text"><strong>Synchronized training dataset</strong> - Build the first synchronized wide-format dataset with sensor features aligned to the S2-computed <code>left_knee</code> angle.</span>
+            </li>
+            <li>
+              <span class="item-date">Baseline model</span>
+              <span class="item-text"><strong>First Baseline Model</strong> - After the preprocessing pipeline is stable, Team V1 will start with simple baselines for <code>left_knee</code> angle regression before testing a compact Deep Learning model such as a 1D CNN.</span>
             </li>
             <li>
               <span class="item-date">Future extension</span>
-              <span class="item-text">Review targetAngles + sensorData + errors after Generation 1</span>
-            </li>
-            <li>
-              <span class="item-date">Future AI pipeline</span>
-              <span class="item-text">Prepare IMU-based AI pipeline when richer data becomes available</span>
+              <span class="item-text"><strong>Clinical AI requirements</strong> - Confirm the extra data needed for a complete clinical model, including more sessions, sensor placement, exercise type, repetition identifiers, and clinical validation labels.</span>
             </li>
           </ul>
         </div>
