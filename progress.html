@@ -42,10 +42,10 @@
       <div class="card">
         <div class="card-top">
           <h3>Current Sprint</h3>
-          <span class="badge active">Sprint 1</span>
+          <span class="badge active">Phase II</span>
         </div>
         <p>
-          Generation 1 planning and V1-V2 integration preparation using the current V2 production API.
+          Phase II standard-curve workflow, recommendation output preparation, and M2/V2 integration support.
         </p>
       </div>
 
@@ -116,6 +116,26 @@
           <h3>Done</h3>
           <ul class="status-list">
             <li>
+              <span class="item-date">2026-06-06</span>
+              <span class="item-text">Walking standard curve script completed.</span>
+            </li>
+            <li>
+              <span class="item-date">2026-06-06</span>
+              <span class="item-text">Squat standard curve script completed.</span>
+            </li>
+            <li>
+              <span class="item-date">2026-06-06</span>
+              <span class="item-text">Upstairs/stair-climbing standard curve script completed.</span>
+            </li>
+            <li>
+              <span class="item-date">2026-06-06</span>
+              <span class="item-text">Phase II requirements analysis document created.</span>
+            </li>
+            <li>
+              <span class="item-date">2026-06-06</span>
+              <span class="item-text">Phase II interface documentation created.</span>
+            </li>
+            <li>
               <span class="item-date">2026-05-17</span>
               <span class="item-text"><strong>V1 AI Pipeline Design published</strong> - Added the first detailed design of the V1 preprocessing and AI pipeline, covering raw JSON ingestion, schema validation, sensor synchronization, feature engineering, target angle alignment, window creation, baseline models, first Deep Learning model planning, post-processing, and future extensions.</span>
             </li>
@@ -154,20 +174,12 @@
           <h3>Doing</h3>
           <ul class="status-list">
             <li>
-              <span class="item-date">Pipeline preparation</span>
-              <span class="item-text"><strong>Pipeline Implementation Preparation</strong> - Preparing the implementation of the first pipeline modules: data parser, validation, sensor grouping, timestamp normalization, synchronization/interpolation, wide-format conversion, and training dataset preparation.</span>
-            </li>
-            <li>
-              <span class="item-date">Data format review</span>
-              <span class="item-text"><strong>S2/V2 payload mapping</strong> - Reviewing how <code>sensorData</code>, <code>targetAngles</code>, <code>errors</code>, and <code>sessionId</code> should be converted into model-ready tables and time-series windows.</span>
-            </li>
-            <li>
-              <span class="item-date">Generation 1</span>
-              <span class="item-text"><strong>Current API compatibility</strong> - Keeping the immediate V1 work compatible with the current V2 Generation 1 API while the richer IMU-based pipeline remains an implementation roadmap.</span>
+              <span class="item-date">Recommendation module</span>
+              <span class="item-text">Recommendation module from raw/processed curve data.</span>
             </li>
             <li>
               <span class="item-date">Integration</span>
-              <span class="item-text"><strong>V2 output path review</strong> - Reviewing how future pipeline results can be converted into recommendation or analysis outputs that V2 can store and expose to other teams.</span>
+              <span class="item-text">Integration preparation with M2/V2.</span>
             </li>
           </ul>
         </div>
@@ -176,20 +188,16 @@
           <h3>To Do / Upcoming</h3>
           <ul class="status-list">
             <li>
-              <span class="item-date">First modules</span>
-              <span class="item-text"><strong>Parser and validator</strong> - Implement the first code modules for loading pipeline JSON files, validating required fields, reporting invalid sessions, and preserving the original raw data.</span>
+              <span class="item-date">Website</span>
+              <span class="item-text">Website publication of Phase II documentation.</span>
             </li>
             <li>
-              <span class="item-date">Preprocessing</span>
-              <span class="item-text"><strong>Synchronized training dataset</strong> - Build the first synchronized wide-format dataset with sensor features aligned to the S2-computed <code>left_knee</code> angle.</span>
+              <span class="item-date">Testing</span>
+              <span class="item-text">Recommendation output testing with patient sessions.</span>
             </li>
             <li>
-              <span class="item-date">Baseline model</span>
-              <span class="item-text"><strong>First Baseline Model</strong> - After the preprocessing pipeline is stable, Team V1 will start with simple baselines for <code>left_knee</code> angle regression before testing a compact Deep Learning model such as a 1D CNN.</span>
-            </li>
-            <li>
-              <span class="item-date">Future extension</span>
-              <span class="item-text"><strong>Clinical AI requirements</strong> - Confirm the extra data needed for a complete clinical model, including more sessions, sensor placement, exercise type, repetition identifiers, and clinical validation labels.</span>
+              <span class="item-date">Deployment</span>
+              <span class="item-text">Final integration support for web deployment.</span>
             </li>
           </ul>
         </div>
